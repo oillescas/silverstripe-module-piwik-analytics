@@ -5,14 +5,14 @@ class PiwikAnalytics extends DataObjectDecorator
                 return array(
                         'db' => array(
                                 'PiwikAnalyticsUrlServer' => 'Text',
-                				'PiwikAnalyticsAccountID' => 'Text'
+                				'PiwikAnalyticsAccountID' => 'Int'
                         )
                 );
         }
          
         public function updateCMSFields(FieldSet &$fields) {
-                $fields->addFieldToTab('Root.Main', new TextField('PiwikAnalyticsUrlServer', 'Piwik Analytics Url Server', ''));
-                $fields->addFieldToTab('Root.Main', new TextField('PiwikAnalyticsAccountID', 'Piwik Analytics Id domain', ''));
+                $fields->addFieldToTab('Root.Piwik', new TextField('PiwikAnalyticsUrlServer', 'Piwik Analytics Url Server (http://...)'));
+                $fields->addFieldToTab('Root.Piwik', new NumericField('PiwikAnalyticsAccountID', 'Piwik Analytics Id domain'));
         }
          
         function contentControllerInit($controller) {
